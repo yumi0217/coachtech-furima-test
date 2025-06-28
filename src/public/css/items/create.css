@@ -1,0 +1,318 @@
+.create-container {
+    width: 720px;
+    margin: 40px auto;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+
+/* アップロードエリア全体（点線枠） */
+.image-upload-area {
+    width: 680px;
+    height: 150px;
+    border: 1px dotted #5F5F5F;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ラベル（ボタン見た目） */
+.image-upload-label {
+    padding: 12px 24px;
+    background-color: #fff;
+    border: 2px solid #ff4b4b;
+    color: #ff4b4b;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.preview-wrapper {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.section-heading-wrapper {
+    width: 680px;
+    height: 48px;
+    border-bottom: 1px solid #5F5F5F;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.section-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #5F5F5F;
+    margin: 0 0 0 0;
+    /* 左揃えで高さ中央に */
+}
+
+.section-divider {
+    border: 1px solid #5F5F5F;
+    width: 680px;
+    margin-bottom: 30px;
+}
+
+.category-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #5F5F5F;
+    margin-bottom: 15px;
+}
+
+.category-button {
+    background: #fff;
+    color: #ff4b4b;
+    border: 1px solid #ff4b4b;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.category-button.selected {
+    background: #ff5655;
+    color: #fff;
+    border-color: #ff5655;
+}
+
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    user-select: none;
+}
+
+.custom-select-trigger {
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ▼マークの表示 */
+.custom-select-trigger::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #888;
+    pointer-events: none;
+}
+
+.custom-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #B1B1B1;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-option {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.custom-option:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group,
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label,
+.section-label {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.create-container input[type="text"],
+.create-container input[type="number"],
+.create-container select,
+.create-container textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* カテゴリーのタグ風スタイル */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-bottom: 24px;
+}
+
+.checkbox-group label {
+    background: #fff0f0;
+    color: #ff4b4b;
+    border: 1px solid #ff4b4b;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+/* 価格入力 */
+.price-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.price-input span {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* 出品ボタン */
+.submit-button {
+    margin: 0 auto;
+    padding: 12px 24px;
+    background-color: #ff4b4b;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 160px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.text-danger {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* === PC対応（1400〜1540px） === */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .create-container {
+        width: 90%;
+        max-width: 960px;
+    }
+
+    .image-upload-area,
+    .section-heading-wrapper,
+    .section-divider {
+        width: 100%;
+    }
+
+    .submit-button {
+        width: 180px;
+    }
+}
+
+/* === タブレット対応（768〜850px） === */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .create-container {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .image-upload-area {
+        width: 100%;
+        height: 130px;
+    }
+
+    .section-heading-wrapper,
+    .section-divider {
+        width: 100%;
+    }
+
+    .section-heading {
+        font-size: 24px;
+    }
+
+    .category-button {
+        font-size: 13px;
+        padding: 4px 12px;
+    }
+
+    .form-group label,
+    .section-label {
+        font-size: 20px;
+    }
+
+    .custom-select-trigger,
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .price-input span {
+        font-size: 14px;
+    }
+
+    .submit-button {
+        font-size: 15px;
+        padding: 10px 20px;
+        width: 140px;
+    }
+}

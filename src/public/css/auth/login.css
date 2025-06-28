@@ -1,0 +1,96 @@
+/* ログインフォーム全体のスタイル */
+.login-container {
+    width: 680px;
+    margin: 100px auto;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    /* 中央揃えにする */
+}
+
+/* ログインの見出し */
+.form-title {
+    width: fit-content;
+    height: 46.04px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: 80px !important;
+    /* !important を追加 */
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    /* 中央寄せ維持 */
+}
+
+/* フォームラベル */
+.form-group {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* フォームラベル */
+.form-group {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    margin-bottom: 10px;
+}
+
+/* 入力欄 */
+.form-group input {
+    width: 100%;
+    height: 57.09px;
+    border-radius: 4px;
+    border: 1px solid #5F5F5F;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+/* ログインボタン */
+.form-button button {
+    width: 100%;
+    height: 65.25px;
+    background-color: #FF5555;
+    border-radius: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* 会員登録リンク */
+.register-link {
+    text-align: center;
+    /* これを追加または確認 */
+    margin-top: 20px;
+    /* justify-content: center; があった場合は削除してください */
+
+}
+
+/* aタグのスタイルはそのまま */
+.register-link a {
+    font-weight: 400;
+    font-size: 20px;
+    color: #0073CC;
+    text-decoration: none;
+    /* もし display: block; や margin: 0 auto; があれば削除してください */
+}
+
+/* エラーメッセージ */
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}

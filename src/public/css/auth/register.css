@@ -1,0 +1,185 @@
+/* register.css */
+
+.register-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    background-color: #F9F9F9;
+    /* 全体背景色など */
+}
+
+.register-container {
+    width: 680px;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    /* 必要に応じて背景 */
+    padding: 0 20px;
+    /* モバイル時の余白を考慮 */
+}
+
+.form-title {
+    width: 144px;
+    height: 47.58px;
+    margin-left: 257px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: 50px;
+}
+
+.error {
+    color: red;
+    font-size: 16px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+/* エラー表示 */
+.error-messages ul {
+    color: red;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+/* フォームラベル */
+.form-group label {
+    display: block;
+    width: 680px;
+    height: 35px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    margin-bottom: 10px;
+}
+
+/* 入力欄 */
+.form-group input {
+    width: 680px;
+    height: 59px;
+    border-radius: 4px;
+    border: 1px solid #5F5F5F;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
+/* 登録ボタン */
+.form-button button {
+    width: 680px;
+    height: 65.25px;
+    background-color: #FF5555;
+    border-radius: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+/* ログインリンク */
+.login-link {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.login-link a {
+    display: inline-block;
+    width: 257px;
+    height: 53.29px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    color: #0073CC;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* ===============================
+   レスポンシブ対応
+=============================== */
+
+/* PC: 1400px〜1540px */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .register-container {
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 720px;
+        height: auto;
+        padding: 40px;
+    }
+
+    .form-group label,
+    .form-group input,
+    .form-button button {
+        width: 100%;
+    }
+
+    .form-title {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .login-link a {
+        width: auto;
+        font-size: 20px;
+    }
+}
+
+/* タブレット: 768px〜850px */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .register-container {
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .form-title {
+        font-size: 28px;
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group label {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .form-group input {
+        height: 50px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .form-button button {
+        height: 55px;
+        font-size: 22px;
+        width: 100%;
+    }
+
+    .login-link {
+        margin-top: 30px;
+    }
+
+    .login-link a {
+        width: auto;
+        font-size: 18px;
+    }
+}

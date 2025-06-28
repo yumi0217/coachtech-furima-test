@@ -1,0 +1,195 @@
+/* === コンテナ中央寄せと幅調整 === */
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === タイトル === */
+.profile-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+/* === プロフィール画像ラッパー === */
+.profile-image-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* 画像とボタンの間隔 */
+    margin-bottom: 30px;
+}
+
+/* === プロフィール画像 === */
+.profile-image,
+.profile-image.blank {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-image.blank {
+    display: block;
+}
+
+/* === 「画像を選択する」ボタン === */
+.image-select-btn {
+    width: 179px;
+    height: 49px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FF5555;
+    border: 2px solid #FF5555;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    line-height: 49px;
+}
+
+
+.profile-image-label {
+    cursor: pointer;
+}
+
+/* === ラベル === */
+.form-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* === 入力フィールド === */
+.form-input {
+    width: 680px;
+    height: 55px;
+    border-radius: 4px;
+    border: 1px solid #5F5F5F;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* === 更新するボタン === */
+.update-btn {
+    width: 680px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #FF5555;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #FFFFFF;
+    text-align: center;
+    border: none;
+    margin-top: 40px;
+    cursor: pointer;
+    line-height: 60px;
+}
+
+/* === バリデーションエラーメッセージ === */
+.error-message {
+    color: #FF5555;
+    font-size: 16px;
+    margin-top: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.success-message {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* === メディアクエリ（既存） === */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .header .logo {
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .header .logo {
+        width: 220px;
+        height: auto;
+    }
+}
+
+/* === PC幅：1400〜1540px === */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+
+    .form-input,
+    .update-btn {
+        width: 600px;
+    }
+
+    .image-select-btn {
+        width: 160px;
+        font-size: 18px;
+    }
+
+    .profile-image {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* === タブレット幅：768〜850px === */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+        margin: 40px auto;
+        align-items: stretch;
+    }
+
+    .form-input,
+    .update-btn {
+        width: 100%;
+        font-size: 16px;
+        height: 50px;
+    }
+
+    .form-label {
+        font-size: 20px;
+    }
+
+    .update-btn {
+        font-size: 20px;
+        height: 54px;
+    }
+
+    .profile-image-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 130px;
+        height: 130px;
+    }
+
+    .image-select-btn {
+        width: 100%;
+        font-size: 16px;
+        height: 45px;
+        line-height: 45px;
+    }
+}

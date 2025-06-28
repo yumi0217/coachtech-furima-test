@@ -1,0 +1,292 @@
+body {
+    background-color: #f8f8f8;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.purchase-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.left-column {
+    flex: 1;
+}
+
+.item-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.item-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+
+.item-details h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #222;
+}
+
+/* === 支払い方法 UI === */
+.payment-method {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+
+}
+
+.payment-method label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* カスタムセレクトUI */
+.custom-select-wrapper {
+    position: relative;
+    width: 320px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.custom-select-trigger {
+    position: relative;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select-trigger::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #888;
+    pointer-events: none;
+}
+
+.custom-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #B1B1B1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 6px 6px;
+    z-index: 999;
+}
+
+.custom-option {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.custom-option:hover {
+    background-color: #007bff;
+}
+
+/* === 配送先 === */
+.shipping-address {
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.shipping-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.shipping-header label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.shipping-header a {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.shipping-header a:hover {
+    text-decoration: underline;
+}
+
+.shipping-address p {
+    margin: 3px 0;
+}
+
+/* === 右カラム === */
+.right-column {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.purchase-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.purchase-summary th {
+    width: 120px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px;
+}
+
+.purchase-summary td {
+    text-align: left;
+    padding-left: 60px;
+    color: #000;
+    padding-bottom: 10px;
+    white-space: nowrap;
+}
+
+.purchase-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.purchase-summary table tr {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.purchase-summary table tr:last-child {
+    border-bottom: none;
+}
+
+.purchase-summary .with-border {
+    border-bottom: 1px solid #ccc;
+}
+
+.purchase-summary th,
+.purchase-summary td {
+    padding: 16px 0;
+}
+
+.purchase-summary td {
+    padding-left: 60px;
+}
+
+/* === 購入ボタン === */
+.purchase-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6b6b;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.purchase-button:hover {
+    background-color: #ff4c4c;
+}
+
+
+
+/* === レスポンシブ対応 === */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .purchase-container {
+        max-width: 1000px;
+        padding: 30px;
+    }
+
+    .item-details h2,
+    .price {
+        font-size: 17px;
+    }
+
+    .custom-select-wrapper {
+        width: 300px;
+    }
+
+    .right-column {
+        width: 280px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .purchase-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+    .item-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .item-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .custom-select-wrapper {
+        width: 100%;
+    }
+
+    .purchase-summary table th,
+    .purchase-summary table td {
+        padding: 10px 0;
+    }
+
+    .purchase-summary td {
+        padding-left: 30px;
+    }
+
+    .purchase-button {
+        font-size: 18px;
+        padding: 14px;
+    }
+}

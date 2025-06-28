@@ -1,0 +1,172 @@
+/* タブセクション：タブと線をまとめる */
+/* .page-container は幅1512pxで中央配置済み */
+
+.tab-section {
+    position: relative;
+    height: 127px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 0;
+    /* 左余白なしでOK */
+}
+
+/* タブメニューは左に少し余白があったほうが見やすいのでpadding入れてOK */
+.tab-menu {
+    display: flex;
+    gap: 52px;
+    padding-left: 129px;
+    /* ここはお好みで */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #5F5F5F;
+    height: 40px;
+    align-items: center;
+    z-index: 2;
+}
+
+.tab-menu .tab {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    color: #5F5F5F;
+    /* 通常の文字色 */
+    text-decoration: none;
+}
+
+.tab-menu .tab.active {
+    color: red;
+    /* アクティブ時の文字色 */
+}
+
+.tab-underline {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: rotate(0.08deg);
+    z-index: 1;
+}
+
+/* 商品一覧 */
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 60px;
+    padding-left: 69px;
+}
+
+/* 商品カード */
+.item-card {
+    width: 290px;
+    text-decoration: none;
+    /* 下線を消す */
+    color: inherit;
+}
+
+.item-image-wrapper {
+    position: relative;
+    width: 290px;
+    height: 290px;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* SOLDバッジ */
+.sold-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* 商品名 */
+.item-name {
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    color: #000000;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .tab-menu {
+        padding-left: 80px;
+        font-size: 22px;
+    }
+
+    .item-list {
+        gap: 24px;
+        padding-left: 50px;
+    }
+
+    .item-card,
+    .item-image-wrapper {
+        width: 260px;
+        height: 260px;
+    }
+
+    .item-name {
+        font-size: 22px;
+        height: 28px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .tab-section {
+        height: auto;
+        padding: 0 20px;
+    }
+
+    .tab-menu {
+        padding-left: 0;
+        justify-content: center;
+        gap: 32px;
+        font-size: 20px;
+    }
+
+    .tab-underline {
+        height: 1px;
+    }
+
+    .item-list {
+        gap: 20px;
+        padding-left: 20px;
+        justify-content: center;
+    }
+
+    .item-card,
+    .item-image-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .item-name {
+        font-size: 18px;
+        height: 24px;
+    }
+
+    .sold-label {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}

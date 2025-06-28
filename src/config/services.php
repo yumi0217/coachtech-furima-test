@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // ***** ここにStripeの設定を追加 *****
+    'stripe' => [
+        'key' => env('STRIPE_KEY'), // 公開可能キー (pk_test_...)
+        'secret' => env('STRIPE_SECRET'), // シークレットキー (sk_test_...)
+    ],
+    // ***** ここまで追加 *****
+
 ];

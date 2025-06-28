@@ -1,0 +1,403 @@
+/* 全体レイアウト */
+.item-detail-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    gap: 40px;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+}
+
+/* 左：商品画像 */
+.item-left {
+    flex: 1;
+}
+
+.item-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* 右：商品情報 */
+.item-right {
+    flex: 2;
+}
+
+/* 商品タイトル・ブランド・価格 */
+.item-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.item-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.item-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.item-brand-name {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.item-brand {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.item-price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+.tax {
+    font-size: 14px;
+    color: #777;
+}
+
+.item-actions {
+    width: 570px;
+    margin-bottom: 24px;
+}
+
+.icons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.icons-row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-number {
+    font-size: 14px;
+    margin-top: 4px;
+    text-align: center;
+    color: #333;
+    line-height: 1;
+}
+
+.icon-group.favorite .icon-number {
+    margin-top: 1px;
+    /* 数字を少し上に詰める */
+}
+
+
+/* 購入手続きボタン */
+.buy-button {
+    width: 570px;
+    height: 56px;
+    background-color: #FF5555;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 56px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #e04c4c;
+}
+
+/* 商品説明セクション */
+.item-description {
+    margin-bottom: 24px;
+}
+
+.item-description h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.color-sample {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* 商品情報セクション */
+.item-info h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.category-tag {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+/* コメントセクション */
+.comments-section {
+    margin-top: 40px;
+}
+
+.comments-section h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    max-width: 570px;
+    /* ← 追加 */
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.comment-avatar {
+    width: 36px;
+    /* ← 小さく */
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ccc;
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: inline-block;
+}
+
+.comment-body {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    max-width: 500px;
+    word-wrap: break-word;
+    flex-grow: 1;
+    /* ← 本文が広がりすぎないように */
+}
+
+.comment-body strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.comment-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 570px;
+}
+
+.comment-form textarea {
+    resize: vertical;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 570px;
+    /* ← ここを固定に */
+    box-sizing: border-box;
+    /* ← padding込みで570pxに収めるために追加 */
+}
+
+.comment-button {
+    width: 570px;
+    height: 56px;
+    background-color: #FF5555;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 56px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.comment-button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.comments-toggle.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: default;
+}
+
+.favorite-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.favorite-button img:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+.comments-toggle {
+    width: 570px;
+    height: 100px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    /* 縦中央揃え */
+    cursor: pointer;
+}
+
+textarea.is-invalid {
+    border: 2px solid #ff4d4d;
+    background-color: #ffeaea;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* === PC幅：1400〜1540px === */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .item-detail-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 50px;
+    }
+
+    .item-title {
+        font-size: 28px;
+    }
+
+    .item-price {
+        font-size: 24px;
+    }
+
+    .item-description,
+    .item-info {
+        font-size: 18px;
+    }
+}
+
+/* === タブレット幅：768〜850px === */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .item-detail-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .item-left,
+    .item-right {
+        width: 100%;
+    }
+
+    .item-left img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .item-title-group {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .item-title {
+        font-size: 24px;
+    }
+
+    .item-brand-name {
+        font-size: 18px;
+        color: #777;
+    }
+
+    .item-price {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .item-actions {
+        text-align: center;
+    }
+
+    .buy-button {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .icons-wrapper {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .item-description,
+    .item-info,
+    .comments-section {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .comment-form textarea {
+        width: 100%;
+    }
+}

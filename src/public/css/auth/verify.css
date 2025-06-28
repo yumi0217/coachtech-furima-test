@@ -1,0 +1,50 @@
+.verify-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 319px;
+    font-family: 'Inter', sans-serif;
+}
+
+.verify-container .form-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.verify-container p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.verify-container form {
+    margin-top: 60px;
+}
+
+.verify-container form button {
+    width: 257px;
+    height: 69px;
+    background-color: #D9D9D9;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.verify-container .resend-form {
+    margin-top: 50px;
+}
+
+.verify-container .resend-form button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: #0073CC;
+    cursor: pointer;
+}
