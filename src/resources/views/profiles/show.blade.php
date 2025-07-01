@@ -8,11 +8,17 @@
 <div class="profile-container">
     <div class="profile-header">
         <div class="profile-image">
-            @if (!empty($user->profile_image))
-            <img src="{{ asset('storage/profile_images/' . $user->profile_image) }}" alt="プロフィール画像">
+            @php
+            $profileImage = $user->profile->profile_image ?? null;
+            $imagePath = $profileImage ? 'storage/profile_images/' . $profileImage : null;
+            @endphp
+
+            @if ($profileImage && file_exists(public_path($imagePath)))
+            <img src="{{ asset($imagePath) }}" alt="プロフィール画像">
             @else
             <div class="avatar-placeholder"></div>
             @endif
+
 
 
 
@@ -31,8 +37,9 @@
     </div>
 
     <div class="tab-menu">
-        <span class="tab" data-tab="selling">出品した商品</span>
-        <span class="tab active" data-tab="purchased">購入した商品</span>
+        <span class="tab {{ $tab === 'sell' ? 'active' : '' }}" data-tab="selling">出品した商品</span>
+        <span class="tab {{ $tab === 'buy' ? 'active' : '' }}" data-tab="purchased">購入した商品</span>
+
     </div>
 
     <div class="tab-underline"></div>

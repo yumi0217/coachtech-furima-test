@@ -70,8 +70,9 @@
 }
 
 .item-actions {
-    width: 570px;
-    margin-bottom: 24px;
+    width: 100%;
+    max-width: 570px;
+    margin: 0 auto 24px;
 }
 
 .icons-wrapper {
@@ -116,7 +117,8 @@
 
 /* 購入手続きボタン */
 .buy-button {
-    width: 570px;
+    width: 100%;
+    max-width: 570px;
     height: 56px;
     background-color: #FF5555;
     color: #FFFFFF;
@@ -315,34 +317,33 @@ textarea.is-invalid {
     margin: 0;
 }
 
-/* === PC幅：1400〜1540px === */
+
+/* PC幅：1400〜1540px */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
     .item-detail-container {
         max-width: 1200px;
-        margin: 0 auto;
-        gap: 50px;
+        gap: 40px;
     }
 
-    .item-title {
-        font-size: 28px;
+    .buy-button,
+    .comment-button {
+        max-width: 570px;
+        width: 100%;
+        font-size: 22px;
     }
 
-    .item-price {
-        font-size: 24px;
-    }
-
-    .item-description,
-    .item-info {
-        font-size: 18px;
+    .comment-form textarea {
+        width: 100%;
+        max-width: 570px;
     }
 }
 
-/* === タブレット幅：768〜850px === */
+/* タブレット幅：768〜850px */
 @media screen and (min-width: 768px) and (max-width: 850px) {
     .item-detail-container {
         flex-direction: column;
-        gap: 30px;
-        padding: 0 20px;
+        padding: 0 16px;
+        gap: 24px;
     }
 
     .item-left,
@@ -350,54 +351,34 @@ textarea.is-invalid {
         width: 100%;
     }
 
-    .item-left img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-    }
-
-    .item-title-group {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
     .item-title {
-        font-size: 24px;
-    }
-
-    .item-brand-name {
-        font-size: 18px;
-        color: #777;
-    }
-
-    .item-price {
         font-size: 22px;
         text-align: center;
     }
 
-    .item-actions {
+    .item-price {
+        font-size: 20px;
         text-align: center;
     }
 
-    .buy-button {
+    .buy-button,
+    .comment-button {
         width: 100%;
         font-size: 18px;
     }
 
-    .icons-wrapper {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .item-description,
-    .item-info,
-    .comments-section {
-        font-size: 16px;
-        padding: 0 10px;
+    .comment-form {
+        width: 100%;
     }
 
     .comment-form textarea {
         width: 100%;
+        box-sizing: border-box;
+    }
+
+    .icons-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
     }
 }

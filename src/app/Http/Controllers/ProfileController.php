@@ -14,12 +14,23 @@ class ProfileController extends Controller
             return redirect()->route('login')->with('error', 'ログインしてください');
         }
 
-        $userId = Auth::id();
-        $user = \App\Models\User::with(['profile', 'purchases.item', 'items'])->findOrFail($userId);
-        $profile = $user->profile ?? $user->profile()->create();
-        $purchases = $user->purchases;
+        $user = Auth::user();
+        $tab = request()->query('tab', 'default'); // ← ここで ?tab=xxx を取得
 
-        return view('profiles.show', compact('user', 'profile', 'purchases'));
+        // 共通データ
+        $profile = $user->profile ?? $user->profile()->create();
+
+        if ($tab === 'mylist') {
+            // お気に入り商品一覧を取得
+            $favorites = $user->favorites()->with('user')->get();
+            return view('profiles.show', compact('user', 'profile', 'tab', 'favorites'));
+        }
+
+        // 通常タブ（購入商品一覧など）
+        $purchases = $user->purchases()->with('item')->get();
+        $items = $user->items()->get();
+
+        return view('profiles.show', compact('user', 'profile', 'tab', 'purchases', 'items'));
     }
 
     public function edit()

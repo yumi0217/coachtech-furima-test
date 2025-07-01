@@ -16,19 +16,15 @@ class ItemCreateTest extends TestCase
     /** @test */
     public function 出品商品情報が正しく保存される()
     {
-        Storage::fake('public'); // 画像の保存先をモック
+        Storage::fake('public');
 
-        // カテゴリ作成（任意で複数）
         $category = Category::create(['name' => 'ファッション']);
-
-        // ログインユーザー作成
         /** @var \App\Models\User $user */
         $user = User::factory()->create();
 
-        // ダミー画像
-        $image = UploadedFile::fake()->image('sample.jpg');
+        // ダミー画像（拡張子・MIMEタイプ付き）
+        $image = UploadedFile::fake()->create('dummy.jpg', 100, 'image/jpeg');
 
-        // 入力データ
         $formData = [
             'name' => 'テスト商品',
             'brand_name' => 'テストブランド',
@@ -39,10 +35,9 @@ class ItemCreateTest extends TestCase
             'image' => $image,
         ];
 
-        // 出品処理を実行
         $response = $this->actingAs($user)->post(route('items.store'), $formData);
 
-        // 保存されたか確認
+        // DBに保存されたか
         $this->assertDatabaseHas('items', [
             'name' => 'テスト商品',
             'brand_name' => 'テストブランド',
@@ -52,14 +47,12 @@ class ItemCreateTest extends TestCase
             'user_id' => $user->id,
         ]);
 
-        // 画像が保存されているか確認
+        // 画像が保存されたか
         Storage::disk('public')->assertExists('items/' . $image->hashName());
 
-        // カテゴリーも中間テーブルに登録されているか
+        // 中間テーブル確認
         $this->assertDatabaseCount('item_categories', 1);
 
-
-        // リダイレクト先確認
         $response->assertRedirect(route('items.index'));
     }
 }

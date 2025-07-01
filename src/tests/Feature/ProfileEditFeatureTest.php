@@ -19,8 +19,10 @@ class ProfileEditFeatureTest extends TestCase
         // ✅ ここからがその該当部分
         Storage::fake('public');
 
-        $image = UploadedFile::fake()->image('test.png');
-        $image->storeAs('profile_images', 'test.png', 'public');
+        // $image = UploadedFile::fake()->image('test.png');
+        // $image->storeAs('profile_images', 'test.png', 'public');
+
+
 
         // ユーザー作成
         /** @var \App\Models\User $user */

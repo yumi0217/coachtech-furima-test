@@ -67,3 +67,40 @@ body {
     font-size: 14px;
     margin-top: 4px;
 }
+
+/* ======= ▼ レスポンシブ対応 ▼ ======= */
+
+/* タブレット：幅768〜850px */
+@media (max-width: 850px) {
+    .address-edit-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .address-edit-container h2 {
+        font-size: 28px;
+    }
+
+    .form-group label {
+        font-size: 20px;
+    }
+
+    .form-button button {
+        font-size: 22px;
+    }
+}
+
+/* スマホなど：幅767px以下（オプション） */
+@media (max-width: 767px) {
+    .address-edit-container h2 {
+        font-size: 24px;
+    }
+
+    .form-group label {
+        font-size: 18px;
+    }
+
+    .form-button button {
+        font-size: 20px;
+    }
+}

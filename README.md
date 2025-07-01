@@ -3,7 +3,7 @@
 ## 環境構築
 ---
 #### Dockerビルド
-  1. git clone git@github.com:git@github.com:yumi0217/coachtech-furima-test.git
+  1. git clone git@github.com:yumi0217/coachtech-furima-test.git
   2. cd coachtech-furima-test
   3. DockerDesktopアプリを立ち上げる
   4. docker-compose up -d --build
@@ -32,10 +32,46 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
+### ダミーデータの生成に使われるファイル
+- `ItemFactory.php`：商品データのランダム生成に使用（ファクトリ経由で自動生成）
+- `ItemsTableSeeder.php`：初期の商品データ10件を手動で挿入
+- `UsersTableSeeder.php`：テスト用の出品者・購入者などのダミーユーザーを登録
+- `CommentsTableSeeder.php`：コメント欄の動作確認用に、ダミーコメントを登録
+
+### DatabaseSeeder.php 内容
+```
+public function run()
+    {
+        $this->call([
+            UsersTableSeeder::class,
+            ItemsTableSeeder::class,
+            CommentsTableSeeder::class,
+        ]);
+    }
+```
+
+
   8. シンボリックリンク作成
 ```
 php artisan storage:link
 ```
+###  出品画像・プロフィール画像の保存先
+
+- 出品画像は `storage/app/public/items/` に保存されます。  
+  `php artisan storage:link` を実行することで、`public/storage/items/` から画像が参照可能になります。
+
+- プロフィール画像は `storage/app/public/profile_images/` に保存されます。  
+  同様に、`public/storage/profile_images/` からアクセス可能になります。
+
+---
+
+###  ダミーユーザー画像についての注意
+
+- ダミーユーザーに設定されたプロフィール画像ファイル（例：`miyo.png`、`ichiro.png` など）は、以下のディレクトリに事前に配置しておいてください：
+public/storage/profile_images/
+
+※ `php artisan storage:link` を実行済みであれば、  
+　 ブラウザから `public/storage/profile_images/` 経由で画像が表示されます。
 
 ## 認証機能
 ---
@@ -76,6 +112,7 @@ Fortify::verifyEmailView(function () {
     return view('auth.verify');
 });
 ```
+
 ## テストログイン情報（ダミーユーザー）
 ---
 
@@ -92,9 +129,15 @@ Fortify::verifyEmailView(function () {
   - mailpit（開発中のメール確認ツール,会員登録する際は開いておく必要あり！）
   - JavaScript（画像プレビュー機能、カスタムUIに使用）
   - Bladeテンプレートエンジン（ビュー構築）
-  - SCSS/CSS（デザインカスタマイズ）
+  - CSS（デザインカスタマイズ）
   - Eloquent ORM（モデルとDBの連携）
-  - Stripe API（カード決済・コンビニ決済）
+  - Stripe API（機能要件にある通り今回は接続のみ）
+
+### .env に以下を追記（Stripeのテストキー）：
+---
+STRIPE_SECRET=sk_test_各自のテスト用シークレットキー
+STRIPE_PUBLIC=pk_test_各自のテスト用パブリックキー
+※各自取得してください
 
 ## メール確認
 ---

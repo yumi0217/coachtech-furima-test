@@ -48,3 +48,48 @@
     color: #0073CC;
     cursor: pointer;
 }
+
+/* ===============================
+   レスポンシブ対応
+=============================== */
+
+/* PC: 1400px〜1540px */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .verify-container {
+        padding: 200px 40px 100px;
+    }
+
+    .verify-container .form-title,
+    .verify-container p {
+        font-size: 26px;
+    }
+
+    .verify-container form button {
+        width: 300px;
+        height: 70px;
+        font-size: 22px;
+    }
+}
+
+/* タブレット: 768px〜850px */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .verify-container {
+        padding: 150px 20px 80px;
+    }
+
+    .verify-container .form-title,
+    .verify-container p {
+        font-size: 22px;
+    }
+
+    .verify-container form button {
+        width: 90%;
+        max-width: 300px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .verify-container .resend-form button {
+        font-size: 18px;
+    }
+}

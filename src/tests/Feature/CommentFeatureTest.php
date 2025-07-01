@@ -71,7 +71,8 @@ class CommentFeatureTest extends TestCase
     /** @test */
     /** @test */
     /** @test */
-    public function コメントは256文字以上でも保存される_バリデーションなしの場合()
+    /** @test */
+    public function コメントは256文字以上の場合は保存されない()
     {
         /** @var \App\Models\User $user */
         $user = User::factory()->create();
@@ -83,8 +84,11 @@ class CommentFeatureTest extends TestCase
             'content' => $longComment,
         ]);
 
-        // バリデーションエラーにならず、保存される想定に変更
-        $this->assertDatabaseHas('comments', [
+        // バリデーションエラーを確認
+        $response->assertSessionHasErrors('content');
+
+        // DBに保存されていないことを確認
+        $this->assertDatabaseMissing('comments', [
             'content' => $longComment,
         ]);
     }

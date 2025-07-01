@@ -110,8 +110,16 @@ class ItemController extends Controller
     public function testMylist()
     {
         $items = collect(); // おすすめ商品は空にする
-        $mylist = auth()->check() ? auth()->user()->favorites : collect();
+        $type = 'mylist';
 
-        return view('items.index', compact('items', 'mylist'));
+        $mylist = collect();
+        if (auth()->check()) {
+            $mylist = auth()->user()
+                ->favorites()
+                ->where('items.user_id', '!=', auth()->id()) // ← 自分の商品を除外
+                ->get();
+        }
+
+        return view('items.index', compact('items', 'mylist', 'type'));
     }
 }

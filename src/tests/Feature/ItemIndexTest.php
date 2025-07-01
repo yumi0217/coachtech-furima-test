@@ -11,6 +11,22 @@ class ItemIndexTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        while (ob_get_level() > 0) {
+            ob_end_clean();
+        }
+    }
+
+    protected function tearDown(): void
+    {
+        while (ob_get_level() > 0) {
+            ob_end_clean();
+        }
+        parent::tearDown();
+    }
+
     public function test_商品一覧が表示される()
     {
         /** @var \App\Models\User $user */
@@ -33,7 +49,8 @@ class ItemIndexTest extends TestCase
         $response = $this->actingAs($user)->get('/');
 
         // 🔽 ここで保存
-        file_put_contents(storage_path('app/test-output.html'), $response->getContent());
+        // file_put_contents(storage_path('app/test-output.html'), $response->getContent());
+
 
         $response->assertStatus(200);
         $response->assertSeeText('表示される商品');

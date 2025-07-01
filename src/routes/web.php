@@ -33,18 +33,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/test-mylist', [\App\Http\Controllers\ItemController::class, 'testMylist']);
-
-
 Route::post('/purchase/checkout/{method}/{item}', [PurchaseController::class, 'redirectToCheckout'])->name('purchase.checkout');
 
-Route::get('/purchase/cancel', [PurchaseController::class, 'cancel'])->name('purchase.cancel');
 
-// ▼ 修正箇所: この仮のルートは削除する
-// Route::get('/addresses/edit', function () {
-//     return '住所編集画面（仮）';
-// })->name('addresses.edit');
-
-Route::get('/purchase/success', [PurchaseController::class, 'success'])->name('purchase.success');
 // プロフィール編集
 Route::get('/profile/edit', [ProfileController::class, 'edit'])
     ->middleware(['auth'])
@@ -71,7 +62,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/items/{item}/comments', [CommentController::class, 'store'])->name('comments.store');
 });
 
-
 Route::middleware(['auth'])->group(function () {
     // 認証待ち画面
     Route::get('/email/verify', function () {
@@ -87,7 +77,7 @@ Route::middleware(['auth'])->group(function () {
     // 認証リンククリック後の処理
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
-        return redirect()->route('profile.edit'); // プロフィール設定へリダイレクト
+        return redirect()->route('profile.edit');
     })->middleware(['auth', 'signed'])->name('verification.verify');
 
     Route::get('/purchases/create', [PurchaseController::class, 'create'])->name('purchases.create');
